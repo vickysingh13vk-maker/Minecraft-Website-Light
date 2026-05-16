@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MinecraftTen — reserved for brand wordmark + product callouts only.
+   Body/headlines use modern sans (Space Grotesk + Inter). */
+@font-face {
+  font-family: "MinecraftTen";
+  src: url("/fonts/MinecraftTen.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MinecraftSeven";
+  src: url("/fonts/Minecraft%20Seven_2.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #0A0A0A;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+::selection { background: #FF5C28; color: #FFFFFF; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #FAFAFA; }
+::-webkit-scrollbar-thumb {
+  background: #D4D4D2;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: #B0B0B0; }
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1400px] px-5 md:px-8 lg:px-12;
+  }
+
+  .text-balance { text-wrap: balance; }
+
+  /* Suorin-style primary CTA — pill, solid colored, subtle elevation */
+  .btn-mc {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #FF5C28;
+    color: #FFFFFF;
+    font-family: var(--font-space), Inter, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 26px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(255, 92, 40, 0.35);
+    transition: transform 180ms ease, box-shadow 180ms ease, background 200ms ease;
+  }
+  .btn-mc:hover {
+    background: #E04B1E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(255, 92, 40, 0.5);
+  }
+  .btn-mc:active { transform: translateY(0); }
+
+  /* Outlined secondary — ink border, transparent bg */
+  .btn-mc-stone {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+    color: #0A0A0A;
+    font-family: var(--font-space), Inter, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 26px;
+    border-radius: 999px;
+    border: 1.5px solid #0A0A0A;
+    transition: all 180ms ease;
+  }
+  .btn-mc-stone:hover {
+    background: #0A0A0A;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+
+  /* Small size variant for nav */
+  .btn-mc-sm {
+    padding: 9px 18px;
+    font-size: 12px;
+  }
+
+  /* Suorin-style product / content card */
+  .mc-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 16px;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+  .mc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.10);
+    border-color: #D4D4D2;
+  }
+
+  .mc-card-light {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 16px;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+  .mc-card-light:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.10);
+    border-color: #D4D4D2;
+  }
+
+  .mc-frame {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .mc-frame-light {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 20px;
+  }
+
+  /* Arrow-link microinteraction — Suorin signature */
+  .arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-space), Inter, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0A0A0A;
+    transition: gap 200ms ease, color 200ms ease;
+  }
+  .arrow-link:hover {
+    color: #FF5C28;
+    gap: 14px;
+  }
+  .arrow-link::after {
+    content: "→";
+    transition: transform 200ms ease;
+  }
+  .arrow-link:hover::after { transform: translateX(2px); }
+
+  /* Small uppercase eyebrow */
+  .eyebrow {
+    font-family: var(--font-space), Inter, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #FF5C28;
+  }
+
+  .eyebrow-dark {
+    font-family: var(--font-space), Inter, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #525252;
+  }
+
+  /* Heading scale — modern sans with tight tracking */
+  .heading-xl {
+    font-family: var(--font-space), Inter, system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-display {
+    font-family: var(--font-space), Inter, system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  /* Hairline divider */
+  .hr-line {
+    height: 1px;
+    background: #E8E8E8;
+  }
+
+  /* Pixel divider (legacy minimal) */
+  .pixel-divider {
+    display: inline-flex;
+    gap: 4px;
+  }
+  .pixel-divider > span {
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: #FF5C28;
+  }
+  .pixel-divider > span:nth-child(2) { opacity: 0.85; }
+  .pixel-divider > span:nth-child(3) { opacity: 0.65; }
+  .pixel-divider > span:nth-child(4) { opacity: 0.45; }
+  .pixel-divider > span:nth-child(5) { opacity: 0.25; }
+
+  .voxel-edge {
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.5),
+      inset -1px -1px 0 rgba(0, 0, 0, 0.08);
+  }
+}
+
+@layer utilities {
+  .text-stroke-dark { -webkit-text-stroke: 1px #0A0A0A; paint-order: stroke fill; }
+  .grain {
+    background-image:
+      radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px);
+    background-size: 3px 3px, 6px 6px;
+    background-position: 0 0, 1.5px 1.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
