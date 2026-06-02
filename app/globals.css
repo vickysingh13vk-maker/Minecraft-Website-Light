@@ -25,7 +25,7 @@
   --foreground: #0A0A0A;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; border-radius: 0 !important; }
 
 html, body {
   background: var(--background);
@@ -36,13 +36,12 @@ html, body {
   overflow-x: hidden;
 }
 
-::selection { background: #FF5C28; color: #FFFFFF; }
+::selection { background: #44A148; color: #FFFFFF; }
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: #FAFAFA; }
 ::-webkit-scrollbar-thumb {
   background: #D4D4D2;
-  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover { background: #B0B0B0; }
 
@@ -53,33 +52,45 @@ html, body {
 
   .text-balance { text-wrap: balance; }
 
-  /* Suorin-style primary CTA — pill, solid colored, subtle elevation */
+  /* Minecraft-style chunky green CTA — sharp corners, dark border, hard inner edge */
   .btn-mc {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: #FF5C28;
+    background: #44A148;
     color: #FFFFFF;
     font-family: var(--font-space), Inter, system-ui, sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 14px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 14px 26px;
-    border-radius: 999px;
-    box-shadow: 0 4px 14px rgba(255, 92, 40, 0.35);
-    transition: transform 180ms ease, box-shadow 180ms ease, background 200ms ease;
+    border: 2px solid #1F4A19;
+    box-shadow:
+      0 4px 0 #1F4A19,
+      inset 0 2px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+    transition: transform 100ms linear, box-shadow 100ms linear, background 160ms linear;
   }
   .btn-mc:hover {
-    background: #E04B1E;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(255, 92, 40, 0.5);
+    background: #5DB45C;
+    transform: translateY(2px);
+    box-shadow:
+      0 2px 0 #1F4A19,
+      inset 0 2px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.18);
   }
-  .btn-mc:active { transform: translateY(0); }
+  .btn-mc:active {
+    transform: translateY(4px);
+    box-shadow:
+      0 0 0 #1F4A19,
+      inset 0 2px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.22);
+  }
 
-  /* Outlined secondary — ink border, transparent bg */
+  /* Outlined secondary — square, ink border, transparent bg */
   .btn-mc-stone {
     position: relative;
     display: inline-flex;
@@ -89,19 +100,24 @@ html, body {
     background: transparent;
     color: #0A0A0A;
     font-family: var(--font-space), Inter, system-ui, sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 14px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 14px 26px;
-    border-radius: 999px;
-    border: 1.5px solid #0A0A0A;
-    transition: all 180ms ease;
+    border: 2px solid #0A0A0A;
+    box-shadow: 4px 4px 0 #0A0A0A;
+    transition: transform 100ms linear, box-shadow 100ms linear, background 160ms linear, color 160ms linear;
   }
   .btn-mc-stone:hover {
     background: #0A0A0A;
     color: #FFFFFF;
-    transform: translateY(-2px);
+    transform: translateY(2px) translateX(2px);
+    box-shadow: 2px 2px 0 #0A0A0A;
+  }
+  .btn-mc-stone:active {
+    transform: translateY(4px) translateX(4px);
+    box-shadow: 0 0 0 #0A0A0A;
   }
 
   /* Small size variant for nav */
@@ -115,7 +131,6 @@ html, body {
     position: relative;
     background: #FFFFFF;
     border: 1px solid #E8E8E8;
-    border-radius: 16px;
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
   }
   .mc-card:hover {
@@ -128,7 +143,6 @@ html, body {
     position: relative;
     background: #FFFFFF;
     border: 1px solid #E8E8E8;
-    border-radius: 16px;
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
   }
   .mc-card-light:hover {
@@ -141,7 +155,6 @@ html, body {
     position: relative;
     background: #FFFFFF;
     border: 1px solid #E8E8E8;
-    border-radius: 20px;
     overflow: hidden;
   }
 
@@ -149,7 +162,6 @@ html, body {
     position: relative;
     background: #FFFFFF;
     border: 1px solid #E8E8E8;
-    border-radius: 20px;
   }
 
   /* Arrow-link microinteraction — Suorin signature */
@@ -166,7 +178,7 @@ html, body {
     transition: gap 200ms ease, color 200ms ease;
   }
   .arrow-link:hover {
-    color: #FF5C28;
+    color: #44A148;
     gap: 14px;
   }
   .arrow-link::after {
@@ -182,7 +194,7 @@ html, body {
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #FF5C28;
+    color: #44A148;
   }
 
   .eyebrow-dark {
@@ -224,7 +236,7 @@ html, body {
     display: block;
     width: 5px;
     height: 5px;
-    background: #FF5C28;
+    background: #44A148;
   }
   .pixel-divider > span:nth-child(2) { opacity: 0.85; }
   .pixel-divider > span:nth-child(3) { opacity: 0.65; }

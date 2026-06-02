@@ -8,19 +8,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Suorin-style CTA: warm coral-orange
+        // Minecraft-style CTA green
         primary: {
-          DEFAULT: "#FF5C28",
-          50: "#FFF1EB",
-          100: "#FFE0D2",
-          200: "#FFC1A5",
-          300: "#FFA278",
-          400: "#FF834B",
-          500: "#FF5C28",
-          600: "#E04B1E",
-          700: "#B23B17",
-          800: "#852C11",
-          900: "#591D0B",
+          DEFAULT: "#44A148",
+          50: "#EAF6E9",
+          100: "#CDE9CC",
+          200: "#A4D7A2",
+          300: "#7BC578",
+          400: "#5DB45C",
+          500: "#44A148",
+          600: "#388438",
+          700: "#2E6B22",
+          800: "#1F4A19",
+          900: "#0F2A0D",
         },
         // White / off-white / warm grey surfaces
         bg: {
@@ -120,7 +120,18 @@ const config: Config = {
         soft: "0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06)",
         card: "0 1px 2px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.08)",
         "card-hover": "0 4px 8px rgba(0,0,0,0.06), 0 24px 60px rgba(0,0,0,0.12)",
-        glow: "0 0 40px rgba(255,92,40,0.25)",
+        glow: "0 0 40px rgba(68,161,72,0.25)",
+      },
+      borderRadius: {
+        none: "0",
+        sm: "0",
+        DEFAULT: "0",
+        md: "0",
+        lg: "0",
+        xl: "0",
+        "2xl": "0",
+        "3xl": "0",
+        full: "0",
       },
     },
   },

@@ -23,18 +23,20 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://demanddistribution.co.uk"),
   title: {
-    default: "Demand Distribution × Minecraft Drinks UK — Premium Gaming Beverages, Distributed Nationwide",
+    default: "Minecraft Drinks UK | Official UK Distribution Partner | Demand Distribution",
     template: "%s | Demand Distribution × Minecraft Drinks",
   },
   description:
-    "London-based UK distribution partner for Minecraft Drinks. Premium gaming-inspired beverages delivered to retailers, hospitality, and e-commerce across the United Kingdom.",
+    "Discover Minecraft Drinks in the UK. Officially distributed by Demand Distribution. Explore the range, learn about the partnership and request trade pricing today.",
   keywords: [
     "Minecraft Drinks UK",
-    "Demand Distribution London",
-    "UK beverage distribution",
-    "gaming drinks UK",
-    "premium beverage wholesale London",
-    "Minecraft licensed drinks",
+    "Official Minecraft Drink",
+    "UK Minecraft Distributor",
+    "Licensed Minecraft Beverage",
+    "Minecraft Drinks Wholesale",
+    "Minecraft Drinks Distribution UK",
+    "Gaming Drinks UK",
+    "Licensed Minecraft Products",
   ],
   authors: [{ name: "Demand Distribution Ltd." }],
   creator: "Demand Distribution Ltd.",

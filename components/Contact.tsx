@@ -31,14 +31,14 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center mb-16 lg:mb-20"
         >
-          <div className="eyebrow mb-5">Our Mission</div>
+          <div className="eyebrow mb-5">07 · Contact</div>
           <h2 className="heading-display text-ink-900 text-[40px] md:text-[56px] lg:text-[68px] text-balance leading-[1.05]">
-            Build the <span className="text-primary">next chapter</span> of UK beverage with the world&apos;s biggest game.
+            Talk to the <span className="text-primary">UK trade team.</span>
           </h2>
           <p className="mt-7 text-lg md:text-xl text-ink-500 leading-relaxed max-w-2xl mx-auto">
-            One brand. One UK distribution partner. Every channel from Tesco to the corner shop —
-            and every postcode in between. We move Minecraft Drinks from London to wherever the
-            shelf lives.
+            Interested in Minecraft Drinks? Whether you&apos;re looking to stock the range, discuss
+            partnership opportunities or learn more about product availability, our team is ready
+            to help. Submit your enquiry and a member of our team will be in touch.
           </p>
         </motion.div>
 
@@ -46,13 +46,10 @@ export default function Contact() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: contact rows */}
           <div className="lg:col-span-5">
-            <div className="eyebrow-dark mb-4">04 · Contact</div>
-            <h3 className="heading-display text-ink-900 text-3xl md:text-4xl lg:text-5xl text-balance">
-              Talk to the <span className="text-primary">UK trade desk.</span>
-            </h3>
-            <p className="mt-5 text-ink-500 text-lg leading-relaxed max-w-md">
-              Multiple, independent, hospitality, or e-commerce — our team replies within 24 hours
-              with case pricing and stock allocations.
+            <div className="eyebrow-dark mb-4">Get In Touch</div>
+            <p className="mt-2 text-ink-500 text-lg leading-relaxed max-w-md">
+              Retailer, wholesaler, hospitality or e-commerce — our team responds within 24 hours
+              with product information and trade pricing.
             </p>
 
             <div className="mt-10 space-y-px bg-line rounded-2xl overflow-hidden border border-line">
@@ -112,21 +109,20 @@ export default function Contact() {
                     <Field label="Phone" name="phone" placeholder="+44 20 0000 0000" />
                   </div>
                   <SelectField
-                    label="I'm enquiring as a"
+                    label="Business Type"
                     name="type"
                     options={[
-                      "Major retailer",
-                      "Independent / convenience",
-                      "Hospitality / on-trade",
-                      "E-commerce",
-                      "Wholesale",
+                      "Retailer",
+                      "Wholesaler",
+                      "Hospitality / On-Trade",
+                      "E-Commerce",
                       "Other",
                     ]}
                   />
                   <TextareaField
-                    label="What can we help with?"
+                    label="Message"
                     name="message"
-                    placeholder="Volumes, regions, timeline…"
+                    placeholder="Tell us about your business and how we can help…"
                   />
 
                   <div className="flex items-center gap-3 pt-2">
@@ -147,7 +143,7 @@ export default function Contact() {
                     className="btn-mc w-full text-base"
                     style={{ padding: "16px 24px" }}
                   >
-                    {loading ? "Sending…" : "Request Trade Pack"}
+                    {loading ? "Sending…" : "Request Trade Pricing"}
                     {!loading && <ArrowRight size={16} />}
                   </button>
                 </form>

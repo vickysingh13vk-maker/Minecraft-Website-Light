@@ -1,212 +1,131 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-
-type Slide = {
-  tag: string;
-  title: string;
-  highlight: string;
-  body: string;
-  src: string;
-  alt: string;
-  bg: string;
-  accent: string;
-  textColor: string;
-};
-
-const slides: Slide[] = [
-  {
-    tag: "New · Q2 2026",
-    title: "Lime",
-    highlight: "Lightning.",
-    body: "Charged citrus hydration. Creeper-green craft. The flagship UK SKU.",
-    src: "/Images/Product (3).png",
-    alt: "Minecraft Drinks Lime Lightning bottle",
-    bg: "linear-gradient(135deg, #F7FBF1 0%, #E9F5DE 50%, #D7EBC1 100%)",
-    accent: "#6CC04A",
-    textColor: "#0A0A0A",
-  },
-  {
-    tag: "Signature SKU",
-    title: "Strawberry",
-    highlight: "Slam.",
-    body: "Pink pixel pop. Real berry. Built for the on-the-go shelf.",
-    src: "/Images/Product (1).png",
-    alt: "Minecraft Drinks Strawberry Slam bottle",
-    bg: "linear-gradient(135deg, #FFF1F5 0%, #FFD9E4 50%, #FFB7CD 100%)",
-    accent: "#E75480",
-    textColor: "#0A0A0A",
-  },
-  {
-    tag: "Top-selling",
-    title: "Caramel",
-    highlight: "Chug.",
-    body: "Warm caramel. Smooth pour. The hospitality favourite.",
-    src: "/Images/Product (2).png",
-    alt: "Minecraft Drinks Caramel Chug bottle",
-    bg: "linear-gradient(135deg, #FFF6EC 0%, #FFE0BD 50%, #FFC78A 100%)",
-    accent: "#E29E2B",
-    textColor: "#0A0A0A",
-  },
-  {
-    tag: "Limited Edition",
-    title: "Chorus",
-    highlight: "Fruit.",
-    body: "Golden apple. Melon. The premium 330ml can.",
-    src: "/Images/Product (4).png",
-    alt: "Minecraft Drinks Chorus Fruit can",
-    bg: "linear-gradient(135deg, #EFF6FD 0%, #C9E0F5 50%, #9FC7EB 100%)",
-    accent: "#6CA4D9",
-    textColor: "#0A0A0A",
-  },
-];
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const [idx, setIdx] = useState(0);
-  const next = useCallback(() => setIdx((i) => (i + 1) % slides.length), []);
-  const prev = useCallback(() => setIdx((i) => (i - 1 + slides.length) % slides.length), []);
-
-  useEffect(() => {
-    const t = setInterval(next, 6500);
-    return () => clearInterval(t);
-  }, [next]);
-
-  const s = slides[idx];
-
   return (
     <section className="relative isolate w-full pt-24 pb-0">
-      <div className="container-x">
+      <div className="relative w-full overflow-hidden min-h-[680px] lg:min-h-[820px] bg-bg-100">
+        {/* Background Minecraft landscape */}
+        <Image
+          src="/Images/Hero 2.png"
+          alt="Minecraft landscape with grass blocks and creeper"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+
+        {/* Legibility overlay — darken bottom-left for copy */}
         <div
-          className="relative overflow-hidden rounded-3xl"
-          style={{ background: s.bg, transition: "background 700ms ease" }}
-        >
-          {/* Slide content */}
-          <div className="relative grid lg:grid-cols-2 gap-6 lg:gap-10 px-6 md:px-12 lg:px-16 pt-16 lg:pt-24 pb-12 lg:pb-16 min-h-[640px] lg:min-h-[720px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`copy-${idx}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col justify-center max-w-xl"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0) 75%)",
+          }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.35) 100%)",
+          }}
+          aria-hidden
+        />
+
+        <div className="relative mx-auto w-full max-w-[1600px]">
+          <div className="relative grid lg:grid-cols-12 items-center px-6 md:px-12 lg:px-20 xl:px-28 pt-16 lg:pt-28 pb-20 lg:pb-24 min-h-[680px] lg:min-h-[820px]">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-10 flex flex-col justify-center max-w-2xl lg:col-span-7"
+            >
+              <div className="inline-flex items-center gap-3 mb-6 self-start px-4 py-2 bg-white/15 backdrop-blur border border-white/25 rounded-full">
+                <span className="inline-block h-2 w-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-[11px] uppercase tracking-[0.28em] font-semibold text-white">
+                  Officially Licensed Minecraft Drinks
+                </span>
+              </div>
+
+              <h1
+                className="heading-display text-white text-[40px] sm:text-[56px] lg:text-[72px] xl:text-[84px]"
+                style={{ textShadow: "0 6px 30px rgba(0,0,0,0.55)" }}
               >
-                <div className="inline-flex items-center gap-3 mb-6">
-                  <span
-                    className="inline-block h-2 w-2 rounded-full"
-                    style={{ background: s.accent }}
-                  />
-                  <span className="text-[11px] uppercase tracking-[0.28em] font-semibold text-ink-700">
-                    {s.tag}
-                  </span>
-                </div>
+                Taste The
+                <br />
+                Adventure.
+              </h1>
 
-                <h1
-                  className="heading-display text-[64px] sm:text-[80px] lg:text-[96px] xl:text-[112px]"
-                  style={{ color: s.textColor }}
+              <p
+                className="mt-7 text-lg md:text-xl text-white/90 leading-relaxed max-w-xl font-medium"
+                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.55)" }}
+              >
+                The officially licensed Minecraft beverage range has arrived in the United Kingdom.
+                Inspired by one of the world&apos;s most iconic gaming universes, Minecraft Drinks transform
+                creativity, exploration and adventure into a unique beverage experience. Now available
+                nationwide through Demand Distribution, the official UK distribution partner for
+                Minecraft Drinks.
+              </p>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <a href="#products" className="btn-mc">
+                  Explore The Range
+                  <ArrowRight size={16} />
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/40 text-white font-bold text-[13px] uppercase tracking-[0.06em] hover:bg-white hover:text-ink-900 transition-colors"
                 >
-                  {s.title}
-                  <br />
-                  <span style={{ color: s.accent }}>{s.highlight}</span>
-                </h1>
+                  Request Trade Pricing
+                  <ArrowRight size={14} />
+                </a>
+              </div>
+            </motion.div>
 
-                <p className="mt-7 text-lg md:text-xl text-ink-600 leading-relaxed max-w-md">
-                  {s.body}
-                </p>
-
-                <div className="mt-9 flex flex-wrap items-center gap-4">
-                  <a href="#products" className="btn-mc">
-                    Shop Range
-                    <ArrowRight size={16} />
-                  </a>
-                  <a href="#about" className="arrow-link">
-                    Learn More
-                  </a>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Product image */}
-            <div className="relative flex items-center justify-center min-h-[420px] lg:min-h-0">
-              <AnimatePresence mode="wait">
+            {/* Floating product — Chorus Fruit can, right column, vertically centered */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="hidden md:flex relative z-10 lg:col-span-5 items-center justify-center lg:justify-end pointer-events-none mt-10 lg:mt-0"
+            >
+              <div className="relative">
+                <div
+                  className="absolute inset-0 -m-12 bg-primary/30 blur-3xl"
+                  aria-hidden
+                />
                 <motion.div
-                  key={`img-${idx}`}
-                  initial={{ opacity: 0, scale: 0.92, y: 30 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative w-full h-[500px] lg:h-[620px]"
+                  animate={{ y: [0, -12, 0], rotate: [-2, 2, -2] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative h-[360px] w-[180px] lg:h-[520px] lg:w-[260px]"
                 >
-                  {/* Soft halo */}
-                  <div
-                    className="absolute inset-x-0 bottom-12 mx-auto h-32 w-3/4 rounded-full blur-3xl opacity-40"
-                    style={{ background: s.accent }}
-                    aria-hidden
-                  />
                   <Image
-                    src={s.src}
-                    alt={s.alt}
+                    src="/Images/Product (4).png"
+                    alt="Minecraft Drinks Chorus Fruit can"
                     fill
-                    priority={idx === 0}
-                    sizes="(max-width: 1024px) 80vw, 50vw"
-                    className="object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.2)]"
+                    priority
+                    sizes="(max-width: 1024px) 200px, 280px"
+                    className="object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]"
                   />
                 </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Controls bar */}
-          <div className="absolute bottom-5 left-0 right-0 px-6 md:px-12 lg:px-16 flex items-center justify-between">
-            {/* Slide dots + counter */}
-            <div className="flex items-center gap-4">
-              <span className="font-mono text-xs text-ink-700 font-semibold tabular-nums">
-                {String(idx + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-              </span>
-              <div className="flex items-center gap-1.5">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setIdx(i)}
-                    aria-label={`Slide ${i + 1}`}
-                    className={`h-1 transition-all duration-400 ${
-                      i === idx ? "w-10 bg-ink-900" : "w-5 bg-ink-300 hover:bg-ink-500"
-                    }`}
-                  />
-                ))}
               </div>
-            </div>
-
-            {/* Arrows */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={prev}
-                aria-label="Previous slide"
-                className="grid h-11 w-11 place-items-center rounded-full border border-ink-900/15 bg-white/70 hover:bg-white hover:border-ink-900/40 transition-all backdrop-blur"
-              >
-                <ChevronLeft size={18} className="text-ink-900" />
-              </button>
-              <button
-                onClick={next}
-                aria-label="Next slide"
-                className="grid h-11 w-11 place-items-center rounded-full border border-ink-900/15 bg-white/70 hover:bg-white hover:border-ink-900/40 transition-all backdrop-blur"
-              >
-                <ChevronRight size={18} className="text-ink-900" />
-              </button>
-            </div>
+            </motion.div>
           </div>
         </div>
+      </div>
 
-        {/* Trust ticker below hero */}
+      {/* Trust ticker below hero */}
+      <div className="container-x">
         <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-line rounded-2xl overflow-hidden border border-line">
           {[
-            { k: "2,400+", v: "UK Retail Locations" },
-            { k: "48h", v: "Nationwide Despatch" },
-            { k: "BRC AA", v: "Certified Supply" },
-            { k: "Mojang ✓", v: "Officially Licensed" },
+            { k: "Licensed", v: "Officially Licensed Minecraft Product" },
+            { k: "UK Wide", v: "Available Across The UK" },
+            { k: "Demand Dist.", v: "Distributed By Demand Distribution" },
+            { k: "Mojang ✓", v: "Official License Holder" },
           ].map((b) => (
             <div key={b.k} className="bg-white p-5 lg:p-6">
               <div className="font-display text-2xl lg:text-3xl font-bold text-ink-900 tracking-tight">

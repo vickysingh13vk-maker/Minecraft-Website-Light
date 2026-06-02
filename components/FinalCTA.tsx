@@ -25,48 +25,54 @@ export default function FinalCTA() {
             aria-hidden
           />
 
-          {/* Floating product silhouettes */}
-          <div className="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 w-1/3 h-3/4 pointer-events-none">
-            <div className="relative h-full w-full">
-              <Image
-                src="/Images/Product (3).png"
-                alt=""
-                fill
-                sizes="33vw"
-                className="object-contain object-right drop-shadow-[0_30px_50px_rgba(0,0,0,0.5)]"
-              />
-            </div>
+          {/* Full-height case image — right half */}
+          <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none">
+            <Image
+              src="/Images/Case.jpg"
+              alt=""
+              fill
+              sizes="50vw"
+              className="object-cover object-left"
+            />
+            {/* Left fade into dark bg */}
+            <div
+              className="absolute inset-y-0 left-0 w-1/3"
+              style={{ background: "linear-gradient(to right, #0E1117, transparent)" }}
+              aria-hidden
+            />
           </div>
 
           <div className="relative max-w-2xl">
             <div className="inline-flex items-center gap-3 mb-6">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               <span className="text-[11px] uppercase tracking-[0.28em] font-semibold text-primary">
-                Now Accepting Trade Applications
+                08 · The Adventure Starts Here
               </span>
             </div>
 
             <h2 className="heading-display text-white text-[40px] md:text-[56px] lg:text-[72px] text-balance leading-[1.02]">
-              One application.
+              The Adventure
               <br />
-              <span className="text-primary">Every UK channel.</span>
+              <span className="text-primary">Starts Here.</span>
             </h2>
 
             <p className="mt-7 text-lg md:text-xl text-white/70 leading-relaxed max-w-xl">
-              Minecraft Drinks is taking on new stockists every quarter. Apply once and
-              Demand Distribution handles the rest — from London to Inverness.
+              One of the world&apos;s most recognised gaming brands. One official UK distribution
+              partner. One opportunity to be part of the future of Minecraft Drinks in the
+              United Kingdom. Join Demand Distribution in bringing Minecraft Drinks to more
+              businesses across the UK.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-5">
               <a href="#contact" className="btn-mc">
-                Become a Stockist
+                Become A Trade Partner
                 <ArrowRight size={16} />
               </a>
               <a
-                href="#products"
+                href="#contact"
                 className="inline-flex items-center gap-2 text-white font-bold text-[13px] uppercase tracking-[0.06em] hover:text-primary transition-colors"
               >
-                View the range
+                Request Trade Pricing
                 <ArrowRight size={16} />
               </a>
             </div>
