@@ -10,7 +10,7 @@ export default function AboutDrinks() {
       className="relative isolate bg-white pt-20 lg:pt-28 pb-20 lg:pb-28 overflow-hidden"
     >
       {/* Minecraft characters — touches right + bottom */}
-      <div className="pointer-events-none absolute bottom-0 right-0 w-[320px] lg:w-[460px] select-none" aria-hidden>
+      <div className="pointer-events-none absolute bottom-0 right-0 hidden md:block w-[320px] lg:w-[460px] select-none" aria-hidden>
         <Image
           src="/Images/New folder/Bild2.png"
           alt=""
@@ -40,7 +40,7 @@ export default function AboutDrinks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-2 gap-px bg-line border border-line overflow-hidden max-w-[calc(100%-320px)] lg:max-w-[calc(100%-400px)]"
+          className="grid grid-cols-2 gap-px bg-line border border-line overflow-hidden md:max-w-[calc(100%-320px)] lg:max-w-[calc(100%-400px)]"
         >
           {[
             { k: "300M+", v: "Copies Sold Worldwide" },

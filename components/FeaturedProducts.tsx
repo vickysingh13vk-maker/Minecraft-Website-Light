@@ -81,10 +81,10 @@ export default function FeaturedProducts() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.55, delay: i * 0.06 }}
-              className="group grid grid-cols-[42%_58%] mc-card overflow-hidden min-h-[380px]"
+              className="group grid grid-cols-1 sm:grid-cols-[42%_58%] mc-card overflow-hidden sm:min-h-[380px]"
             >
               <div
-                className="relative overflow-hidden min-h-[360px] md:min-h-0"
+                className="relative overflow-hidden min-h-[280px] sm:min-h-0"
                 style={{ background: t.bg }}
               >
                 <div

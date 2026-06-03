@@ -66,8 +66,11 @@ export default function Nav() {
         </ul>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="#contact" className="btn-mc btn-mc-sm">
-            Become a Stockist
+          <a href="/quote/b2c" className="text-[13px] font-semibold uppercase tracking-wider text-ink-700 hover:text-primary transition-colors">
+            Enquiry
+          </a>
+          <a href="/quote/b2b" className="btn-mc btn-mc-sm">
+            Request a Quote
           </a>
         </div>
 
